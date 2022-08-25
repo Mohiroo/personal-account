@@ -1,0 +1,46 @@
+.login-page {
+  margin-top: 20vh;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  position: relative;
+}
+
+.login-icon {
+  margin-bottom: 3vh;
+
+  padding: 18px;
+  border-radius: 50%;
+  background: rgb(0, 21, 41);
+
+  font-size: 64px;
+  color: #1890ff;
+}
+
+.login-form {
+  max-width: 300px;
+
+  .login-form-button {
+    width: 100%;
+  }
+
+  .login-form-button-mode {
+    display: block;
+    margin: 0 auto;
+  }
+}
+
+.login-loading {
+  font-size: 32px;
+}
+
+.login-alert {
+  max-width: 300px;
+
+  position: absolute;
+  margin: 34.5vh 0 0;
+
+  z-index: 10;
+}
