@@ -1,0 +1,14 @@
+@import '~antd/dist/antd.css';
+
+#root {
+  min-height: 100%;
+}
+
+header {
+  display: flex;
+  justify-content: space-between;
+}
+
+.ant-layout {
+  min-height: 100vh;
+}
