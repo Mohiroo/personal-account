@@ -1,9 +1,35 @@
 {
-  "posts": [
-    { "id": 1, "title": "json-server", "author": "typicode" }
+  "users": [
+    {
+      "id": 1,
+      "login": "login",
+      "password": "login"
+    },
+    {
+      "id": 2,
+      "login": "1",
+      "password": "1"
+    }
   ],
-  "comments": [
-    { "id": 1, "body": "some comment", "postId": 1 }
-  ],
-  "profile": { "name": "typicode" }
+  "accounts": [
+    {
+      "id": 1,
+      "name": "1",
+      "contacts": []
+    },
+    {
+      "id": 2,
+      "name": "2",
+      "contacts": [
+        {
+          "name": "1111",
+          "tel": "1111"
+        },
+        {
+          "name": "2222",
+          "tel": "2222"
+        }
+      ]
+    }
+  ]
 }
