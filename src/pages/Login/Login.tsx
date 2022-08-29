@@ -17,13 +17,14 @@ const Login = () => {
   const dispatch = useAppDispatch();
   const { approveAuthorization } = authSlice.actions;
 
-  const [ckeckLogin, {isLoading: isLoadingLogin}] = UserAPI.useLazyGetLoginQuery();
+  const [ckeckLogin, { isLoading: isLoadingLogin }] =
+    UserAPI.useLazyGetLoginQuery();
   const [addUser, { isError: isErrorRegistration, isLoading: isLoadingUser }] =
     UserAPI.useAddUserMutation();
   const [addAccount, { isError: isErrorAccount, isLoading: isLoadingAccaunt }] =
     UserAPI.useAddAccountMutation();
 
-  const isLoading = isLoadingLogin || isLoadingUser || isLoadingAccaunt
+  const isLoading = isLoadingLogin || isLoadingUser || isLoadingAccaunt;
 
   const approveAuth = (login: string) => dispatch(approveAuthorization(login));
 
@@ -77,7 +78,8 @@ const Login = () => {
   const registration = async (login: string, password: string) => {
     try {
       // Тест логина и пароля - только латинские буквы, с цифрамы, от 1 до 20 символов (1 символ - буква)
-      const testData = (string: string) => /^[a-zA-Z1-9]{1,}$/.test(string) === false;
+      const testData = (string: string) =>
+        /^[a-zA-Z1-9]{1,}$/.test(string) === false;
 
       // Нужна проверка - существует ли такой же логин
 
@@ -88,7 +90,7 @@ const Login = () => {
 
       await addUser({ login: login, password: password } as ILogin);
       await addAccount({
-        name: login,
+        user: login,
         contacts: Array<IContacts>(),
       } as IAccount);
 

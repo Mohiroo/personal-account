@@ -14,20 +14,100 @@
   "accounts": [
     {
       "id": 1,
-      "name": "1",
+      "user": "login",
       "contacts": []
     },
     {
       "id": 2,
-      "name": "2",
+      "user": "1",
       "contacts": [
         {
-          "name": "1111",
-          "tel": "1111"
+          "id": 1,
+          "name": "Виктор",
+          "surname": "Астафьев",
+          "tel": "9785412530",
+          "email": "VictorAst@mail.ru",
+          "description": "Интеллигентный трубач (театр)"
         },
         {
-          "name": "2222",
-          "tel": "2222"
+          "id": 2,
+          "name": "Екатерина",
+          "surname": "Дроздова",
+          "tel": "9665262520",
+          "email": "EkBook@mail.ru",
+          "description": "Редактор журнала «Эпоха писателей»"
+        },
+        {
+          "id": 3,
+          "name": "Дарья",
+          "surname": "Шулимова",
+          "tel": "9522736213",
+          "email": "milkiii@mail.com",
+          "description": "Напарница по теннису"
+        },
+        {
+          "id": 4,
+          "name": "Александр",
+          "surname": "Пушкин",
+          "tel": "9555225252",
+          "email": "Pushkin@mail.ru",
+          "description": "Великий русский поэт"
+        },
+        {
+          "id": 5,
+          "name": "Виктория",
+          "surname": "Обухова",
+          "tel": "9772452678",
+          "email": "Vikisik@mail.com",
+          "description": "Классный руководитель сына"
+        },
+        {
+          "id": 6,
+          "name": "Роман",
+          "surname": "Истомин",
+          "tel": "9672532789",
+          "email": "remont123@mail.com",
+          "description": "Начальник ремонтной бригады"
+        },
+        {
+          "id": 7,
+          "name": "Никита",
+          "surname": "Грехов",
+          "tel": "9665246351",
+          "email": "NikTop@mail.ru",
+          "description": "Бармен из «Мир кофе»"
+        },
+        {
+          "id": 8,
+          "name": "Алексей",
+          "surname": "Никифоров",
+          "tel": "9722778490",
+          "email": "NikiforovAleksey@mail.com",
+          "description": "Коллега (отдел маркетинга)"
+        },
+        {
+          "id": 9,
+          "name": "Алена",
+          "surname": "Юсупова",
+          "tel": "9462789129",
+          "email": "AlenaUs@mail.com",
+          "description": "Коллега (отдел кадров)"
+        },
+        {
+          "id": 10,
+          "name": "Маргарита",
+          "surname": "Ульянова",
+          "tel": "9776151530",
+          "email": "Margaret1981@mail.ru",
+          "description": "Жена"
+        },
+        {
+          "id": 11,
+          "name": "Михаил",
+          "surname": "Ульянов",
+          "tel": "9256286404",
+          "email": "sirMichel@mail.ru",
+          "description": "Сын"
         }
       ]
     }
