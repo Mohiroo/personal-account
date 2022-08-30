@@ -1,29 +1,34 @@
+import { Empty } from "antd";
 import React from "react";
+import { IContacts } from "../../model/IAccount";
 import ContactItem from "../ContactItem/ContactItem";
 
-const ContactList = () => {
+interface ContactListProps {
+  contacts: IContacts[];
+  deleteContact: (contact: IContacts) => void;
+  sendChanges: (contact: IContacts) => void;
+}
+
+const ContactList: React.FC<ContactListProps> = ({ contacts, deleteContact, sendChanges }) => {
   return (
     <section>
-      <ContactItem
-        id={0}
-        name={"name"}
-        surname={"surname"}
-        tel={"9999999999"}
-        email={"example@example.com"}
-        description={"Good man"}
-        deleteContact={() => {}}
-        patchData={() => {}}
-      />
-      <ContactItem
-        id={100}
-        name={"namenamenamenamenamenamename"}
-        surname={"surname"}
-        tel={"1111111111"}
-        email={"example@example.com"}
-        description={"Bad man"}
-        deleteContact={() => {}}
-        patchData={() => {}}
-      />
+      {contacts.length ? (
+        contacts.map((contact) => (
+          <ContactItem
+            key={contact.id}
+            id={contact.id}
+            name={contact.name}
+            surname={contact.surname}
+            tel={contact.tel}
+            email={contact.email}
+            description={contact.description}
+            deleteContact={deleteContact}
+            sendChanges={sendChanges}
+          />
+        ))
+      ) : (
+        <Empty description={"Контактов нет :("} />
+      )}
     </section>
   );
 };
