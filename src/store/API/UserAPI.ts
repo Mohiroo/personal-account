@@ -44,5 +44,11 @@ export const UserAPI = createApi({
         body: account,
       }),
     }),
+    deleteContact: build.mutation<null, number>({
+      query: (account) => ({
+        url: "accounts",
+        method: "DELETE",
+      }),
+    }),
   }),
 });

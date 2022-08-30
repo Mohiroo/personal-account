@@ -12,8 +12,8 @@ interface ContactItemProps {
   tel: string;
   email: string;
   description: string;
-  deleteContact: () => void;
-  sendChanges: () => void;
+  deleteContact: (contact: IContacts) => void;
+  sendChanges: (contact: IContacts) => void;
 }
 
 const ContactItem: React.FC<ContactItemProps> = ({ id, name, surname, tel, email, description, deleteContact, sendChanges }) => {
@@ -47,7 +47,7 @@ const ContactItem: React.FC<ContactItemProps> = ({ id, name, surname, tel, email
     if (!isValidTel() || !isValidEmail()) return;
 
     setInputState(editableData);
-    sendChanges();
+    sendChanges(inputState);
     setIsEditMode(false);
   };
 
@@ -111,7 +111,7 @@ const ContactItem: React.FC<ContactItemProps> = ({ id, name, surname, tel, email
               <span className="contact-item-unit">{inputState.email}</span>
               <div>
                 <Button type="link" onClick={() => setIsEditMode(true)} icon={<EditTwoTone />} />
-                <Button type="text" onClick={deleteContact} danger icon={<DeleteOutlined />} />
+                <Button type="text" onClick={() => deleteContact(inputState)} danger icon={<DeleteOutlined />} />
               </div>
             </>
           )}

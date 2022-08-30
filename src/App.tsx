@@ -14,17 +14,18 @@ const App: React.FC = () => {
   const dispatch = useAppDispatch();
   const { rejectAuthorization } = authSlice.actions;
 
-  useEffect(() => console.log('render'))
+  useEffect(() => console.log("render"));
 
   return (
     <Layout>
-      <MyHeader auth={auth} onClick={() => auth && dispatch(rejectAuthorization())}/>
+      <MyHeader auth={auth} onClick={() => auth && dispatch(rejectAuthorization())} />
       <Content>
         <Routes>
           {auth ? (
             <>
               <Route path="/" element={<Login />} />
               <Route path="/account" element={<Account />} />
+              <Route path="*" element={<Account />} />
             </>
           ) : (
             <>
