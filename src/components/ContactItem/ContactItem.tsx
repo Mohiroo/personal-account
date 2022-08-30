@@ -62,60 +62,58 @@ const ContactItem: React.FC<ContactItemProps> = ({ id, name, surname, tel, email
           size="small"
           icon={<RightOutlined />}
           onClick={() => setisDescription(!isDescription)}
-          className={"contact-item-button-description" + (isDescription ? "-active" : "")}
+          className={"contact-item-button-description" + isDescription ? "-active" : ""}
         />
-        <div className="contact-item-info">
-          <span className="contact-item-id">{inputState.id}</span>
-          {isEditMode ? (
-            <>
-              <Input
-                placeholder="Имя"
-                defaultValue={inputState.name}
-                onChange={(e) => setEditableData({ ...editableData, name: e.target.value })}
-                className="contact-item-unit"
-              />
-              <Input
-                placeholder="Фамилия"
-                defaultValue={inputState.surname}
-                onChange={(e) => setEditableData({ ...editableData, surname: e.target.value })}
-                className="contact-item-unit"
-              />
-              <Input
-                placeholder="Телефон"
-                defaultValue={inputState.tel}
-                onChange={(e) => setEditableData({ ...editableData, tel: e.target.value })}
-                maxLength={10}
-                className="contact-item-unit"
-                type={"tel"}
-                status={isValidTel() ? "" : "error"}
-              />
-              <Input
-                placeholder="Почта"
-                defaultValue={inputState.email}
-                onChange={(e) => setEditableData({ ...editableData, email: e.target.value })}
-                className="contact-item-unit"
-                status={isValidEmail() ? "" : "error"}
-              />
-              <div>
-                <Button type="link" onClick={(e) => confirmChanges()} icon={<CheckOutlined />} />
-                <Button type="text" onClick={undoChanges} icon={<CloseOutlined />} />
-              </div>
-            </>
-          ) : (
-            <>
-              <span className="contact-item-unit">{inputState.name}</span>
-              <span className="contact-item-unit">{inputState.surname}</span>
-              <span className="contact-item-unit">
-                +7 ({telPart(0, 3)}) {telPart(3, 6)}-{telPart(6, 8)}-{telPart(8, 11)}
-              </span>
-              <span className="contact-item-unit">{inputState.email}</span>
-              <div>
-                <Button type="link" onClick={() => setIsEditMode(true)} icon={<EditTwoTone />} />
-                <Button type="text" onClick={() => deleteContact(inputState)} danger icon={<DeleteOutlined />} />
-              </div>
-            </>
-          )}
-        </div>
+        <span className="contact-item-id">{inputState.id}</span>
+        {isEditMode ? (
+          <>
+            <Input
+              placeholder="Имя"
+              defaultValue={inputState.name}
+              onChange={(e) => setEditableData({ ...editableData, name: e.target.value })}
+              className="contact-item-unit"
+            />
+            <Input
+              placeholder="Фамилия"
+              defaultValue={inputState.surname}
+              onChange={(e) => setEditableData({ ...editableData, surname: e.target.value })}
+              className="contact-item-unit"
+            />
+            <Input
+              placeholder="Телефон"
+              defaultValue={inputState.tel}
+              onChange={(e) => setEditableData({ ...editableData, tel: e.target.value })}
+              maxLength={10}
+              className="contact-item-unit"
+              type={"tel"}
+              status={isValidTel() ? "" : "error"}
+            />
+            <Input
+              placeholder="Почта"
+              defaultValue={inputState.email}
+              onChange={(e) => setEditableData({ ...editableData, email: e.target.value })}
+              className="contact-item-unit"
+              status={isValidEmail() ? "" : "error"}
+            />
+            <div>
+              <Button type="link" onClick={(e) => confirmChanges()} icon={<CheckOutlined />} />
+              <Button type="text" onClick={undoChanges} icon={<CloseOutlined />} />
+            </div>
+          </>
+        ) : (
+          <>
+            <span className="contact-item-unit">{inputState.name}</span>
+            <span className="contact-item-unit">{inputState.surname}</span>
+            <span className="contact-item-unit">
+              +7 ({telPart(0, 3)}) {telPart(3, 6)}-{telPart(6, 8)}-{telPart(8, 11)}
+            </span>
+            <span className="contact-item-unit">{inputState.email}</span>
+            <div>
+              <Button type="link" onClick={() => setIsEditMode(true)} icon={<EditTwoTone />} />
+              <Button type="text" onClick={() => deleteContact(inputState)} danger icon={<DeleteOutlined />} />
+            </div>
+          </>
+        )}
       </form>
       {isDescription &&
         (isEditMode ? (

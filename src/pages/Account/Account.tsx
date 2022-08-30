@@ -1,4 +1,4 @@
-import { Button, Result, Skeleton } from "antd";
+import { Result, Skeleton } from "antd";
 import ContactList from "../../components/ContactList/ContactList";
 import { useAppSelector } from "../../hooks/redux";
 import { IContacts } from "../../model/IAccount";
