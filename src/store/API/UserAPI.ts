@@ -16,7 +16,7 @@ export const UserAPI = createApi({
         },
       }),
       transformResponse: (serverLogins: ILogin[]): ILogin => {
-        return serverLogins[0]
+        return serverLogins[0];
       },
     }),
     addUser: build.mutation<ILogin, ILogin>({
@@ -27,14 +27,14 @@ export const UserAPI = createApi({
       }),
     }),
     getAccount: build.query<IAccount, string>({
-      query: (name) => ({
+      query: (user) => ({
         url: "accounts",
         params: {
-          name: name,
+          user: user,
         },
       }),
       transformResponse: (serverAccounts: IAccount[]): IAccount => {
-        return serverAccounts[0]
+        return serverAccounts[0];
       },
     }),
     addAccount: build.mutation<IAccount, IAccount>({

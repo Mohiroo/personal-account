@@ -1,12 +1,12 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 
 interface AuthState {
-  name: string;
+  user: string;
   auth: boolean;
 }
 
 const initialState: AuthState = {
-  name: "",
+  user: "",
   auth: false,
 };
 
@@ -15,13 +15,13 @@ export const authSlice = createSlice({
   initialState,
   reducers: {
     approveAuthorization(state, action: PayloadAction<string>) {
-      state.name = action.payload
-      state.auth = true
+      state.user = action.payload;
+      state.auth = true;
     },
-    rejectAuthorization(state){
-      state.name = ''
-      state.auth = false
-    }
+    rejectAuthorization(state) {
+      state.user = "";
+      state.auth = false;
+    },
   },
 });
 
