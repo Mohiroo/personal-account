@@ -1,0 +1,12 @@
+.contacts-search {
+  max-width: 400px;
+  display: flex;
+  margin: 0 auto;
+  padding: 0 15px;
+}
+
+@media screen and (max-width: 420px) {
+  .contacts-search {
+    flex-direction: column;
+  }
+}
