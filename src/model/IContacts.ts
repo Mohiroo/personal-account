@@ -1,11 +1,6 @@
-export interface IAccount {
-  id: number;
-  user: string;
-  contacts: IContacts[];
-}
-
 export interface IContacts {
   id: number;
+  userId: string;
   name: string;
   surname: string;
   tel: string;
