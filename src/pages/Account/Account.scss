@@ -2,3 +2,22 @@
   margin: 50px 0;
   text-align: center;
 }
+
+.account-buttons {
+  display: flex;
+  justify-content: space-between;
+
+  margin: 30px 15px 0;
+}
+
+@media screen and (max-width: 420px) {
+  .account-buttons {
+    flex-direction: column;
+
+    button {
+      &:first-child {
+        margin: 0 0 10px 0;
+      }
+    }
+  }
+}
