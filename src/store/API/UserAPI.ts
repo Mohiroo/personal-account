@@ -1,5 +1,5 @@
 import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/dist/query/react";
-import { IAccount } from "../../model/IAccount";
+import { IContacts } from "../../model/IContacts";
 import { ILogin } from "../../model/ILogin";
 
 export const UserAPI = createApi({
@@ -7,8 +7,9 @@ export const UserAPI = createApi({
   baseQuery: fetchBaseQuery({
     baseUrl: "http://localhost:3000",
   }),
+  tagTypes: ["Contacts"],
   endpoints: (build) => ({
-    getLogin: build.query<ILogin, string>({
+    getUser: build.query<ILogin, string>({
       query: (formLogin) => ({
         url: "users",
         params: {
@@ -26,29 +27,37 @@ export const UserAPI = createApi({
         body: user,
       }),
     }),
-    getAccount: build.query<IAccount, string>({
-      query: (user) => ({
-        url: "accounts",
+    getContacts: build.query<IContacts[], string>({
+      query: (userId) => ({
+        url: "contacts",
         params: {
-          user: user,
+          userId: userId,
         },
       }),
-      transformResponse: (serverAccounts: IAccount[]): IAccount => {
-        return serverAccounts[0];
-      },
+      providesTags: ["Contacts"],
     }),
-    addAccount: build.mutation<IAccount, IAccount>({
-      query: (account) => ({
-        url: "accounts",
+    addContact: build.mutation<IContacts, IContacts>({
+      query: (contact) => ({
+        url: `contacts`,
         method: "POST",
-        body: account,
+        body: contact,
       }),
+      invalidatesTags: ["Contacts"],
+    }),
+    editContact: build.mutation<IContacts, IContacts>({
+      query: (contact) => ({
+        url: `contacts/${contact.id}`,
+        method: "PUT",
+        body: contact,
+      }),
+      invalidatesTags: ["Contacts"],
     }),
     deleteContact: build.mutation<null, number>({
-      query: (account) => ({
-        url: "accounts",
+      query: (id) => ({
+        url: `contacts/${id}`,
         method: "DELETE",
       }),
+      invalidatesTags: ["Contacts"],
     }),
   }),
 });
