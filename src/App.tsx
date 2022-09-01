@@ -1,7 +1,7 @@
-import { Button, Layout } from "antd";
-import { Header, Content } from "antd/lib/layout/layout";
+import { Layout } from "antd";
+import { Content } from "antd/lib/layout/layout";
 import React, { useEffect } from "react";
-import { Routes, Route, Link } from "react-router-dom";
+import { Routes, Route } from "react-router-dom";
 import "./App.scss";
 import MyHeader from "./components/Header/Header";
 import { useAppDispatch, useAppSelector } from "./hooks/redux";
