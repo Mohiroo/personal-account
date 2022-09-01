@@ -2,23 +2,35 @@ import { CheckOutlined, CloseOutlined, DeleteOutlined, EditTwoTone, RightOutline
 import { Button, Input } from "antd";
 import TextArea from "antd/lib/input/TextArea";
 import React, { useState } from "react";
-import { IContacts } from "../../model/IAccount";
+import { IContacts } from "../../model/IContacts";
 import "./ContactItem.scss";
 
 interface ContactItemProps {
   id: number;
+  userId: string;
   name: string;
   surname: string;
   tel: string;
   email: string;
   description: string;
   deleteContact: (contact: IContacts) => void;
-  sendChanges: (contact: IContacts) => void;
+  unpdateContact: (contact: IContacts) => void;
 }
 
-const ContactItem: React.FC<ContactItemProps> = ({ id, name, surname, tel, email, description, deleteContact, sendChanges }) => {
+const ContactItem: React.FC<ContactItemProps> = ({
+  id,
+  userId,
+  name,
+  surname,
+  tel,
+  email,
+  description,
+  deleteContact,
+  unpdateContact,
+}) => {
   const [inputState, setInputState] = useState<IContacts>({
     id: id,
+    userId: userId,
     name: name,
     surname: surname,
     tel: tel,
@@ -47,11 +59,15 @@ const ContactItem: React.FC<ContactItemProps> = ({ id, name, surname, tel, email
     if (!isValidTel() || !isValidEmail()) return;
 
     setInputState(editableData);
-    sendChanges(inputState);
+    unpdateContact(editableData);
     setIsEditMode(false);
   };
 
-  const telPart = (startNum: number, endNumber: number) => inputState.tel.substring(startNum, endNumber);
+  const telTransform = (): string => {
+    const telPart = (startNum: number, endNumber: number) => inputState.tel.substring(startNum, endNumber);
+
+    return `(${telPart(0, 3)}) ${telPart(3, 6)}-${telPart(6, 8)}-${telPart(8, 11)}`;
+  };
 
   return (
     <article className="contact-item">
@@ -62,10 +78,9 @@ const ContactItem: React.FC<ContactItemProps> = ({ id, name, surname, tel, email
           size="small"
           icon={<RightOutlined />}
           onClick={() => setisDescription(!isDescription)}
-          className={"contact-item-button-description" + isDescription ? "-active" : ""}
+          className={"contact-item-button-description" + (isDescription ? "-active" : "")}
         />
         <div className="contact-item-info">
-          <span className="contact-item-id">{inputState.id}</span>
           {isEditMode ? (
             <>
               <Input
@@ -105,9 +120,7 @@ const ContactItem: React.FC<ContactItemProps> = ({ id, name, surname, tel, email
             <>
               <span className="contact-item-unit">{inputState.name}</span>
               <span className="contact-item-unit">{inputState.surname}</span>
-              <span className="contact-item-unit">
-                +7 ({telPart(0, 3)}) {telPart(3, 6)}-{telPart(6, 8)}-{telPart(8, 11)}
-              </span>
+              <span className="contact-item-unit">+7 {telTransform()}</span>
               <span className="contact-item-unit">{inputState.email}</span>
               <div>
                 <Button type="link" onClick={() => setIsEditMode(true)} icon={<EditTwoTone />} />
