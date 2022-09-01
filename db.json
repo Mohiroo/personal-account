@@ -96,42 +96,6 @@
       "email": "sirMichel@mail.ru",
       "description": "Сын",
       "id": 10
-    },
-    {
-      "userId": "1",
-      "name": "Виктория",
-      "surname": "Обухова",
-      "tel": "9772452678",
-      "email": "Vikisik@mail.com",
-      "description": "Классный руководитель сына",
-      "id": 11
-    },
-    {
-      "userId": "1",
-      "name": "Виктор",
-      "surname": "Баринов",
-      "tel": "9651111111",
-      "email": "example@example.com",
-      "description": "Познакомились вчера",
-      "id": 12
-    },
-    {
-      "userId": "1",
-      "name": "Екатерина",
-      "surname": "Белова",
-      "tel": "9662222222",
-      "email": "example@example.com",
-      "description": "Не забудь добавить описание",
-      "id": 13
-    },
-    {
-      "userId": "1",
-      "name": "Николай",
-      "surname": "Сергеев",
-      "tel": "9523333333",
-      "email": "example@example.com",
-      "description": "",
-      "id": 14
     }
   ]
 }
